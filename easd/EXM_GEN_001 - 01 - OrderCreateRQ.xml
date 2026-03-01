@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	OrderCreateRQ containing Verifiable Presentation for verification by recipient Airline
+-->
+<easd:IATA_OrderCreateRQ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:easd="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage" xmlns="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersCommonTypes" xsi:schemaLocation="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage https://airtechzone.iata.org/xsd/261/IATA_OrderCreateRQ.xsd">
+	<easd:DistributionChain>
+		<DistributionChainLink>
+			<Ordinal>1</Ordinal>
+			<OrgRole>Seller</OrgRole>
+			<ParticipatingOrg>
+				<Name>ACME Travels</Name>
+				<OrgID>12345678</OrgID>
+			</ParticipatingOrg>
+			<VerifiablePresentation>
+			{
+				"@context" : [ "https://www.w3.org/2018/credentials/v1" ], 
+				"type" : [ "VerifiablePresentation" ], 
+				"transactionIdentifier" : "4893df4d-3a95-491d-b5d2-c2005a3b3fea", 
+				"holder" : "did:web:PCF.PW:1A12", 
+				"verifiableCredential" : { 
+					"id": "did:web:www-preprod.iata.org:credentials:a0b41beb-3abe-4de9-81ed-e55584b71e28", 
+					"type": [ 
+						"VerifiableCredential", 
+						"IATACredential" ], 
+					"proof": { 
+						"jws": "eyJhbGciOiAiRWREU0EiLCAiYjY0IjogZmFsc2UsICJjcml0IjogWyJiNjQiXX0..wWt10PNpVCscxjY38LB_PFbK3_uAAHPe4GYMtBQzceDaQHs0Rpugcx0FkktuaNFGuMtARXt6DrG17PObNa6SCA", 
+						"type": "Ed25519Signature2018", 
+						"created": "2023-09-01T11:07:47.947586+00:00", 
+						"proofPurpose": "assertionMethod", 
+						"verificationMethod": "did:web:www-preprod.iata.org:preprod#key-1" 
+					},
+					"issuer": "did:web:www-preprod.iata.org:preprod", 
+					"@context": [ 
+						"https://www.w3.org/2018/credentials/v1", "https://schemas.preprod.digitalcredentials.iata.org/contexts/iata_credential.jsonld", 
+						"https://w3id.org/vc/status-list/2021/v1" ], 
+					"issuanceDate": "2023-09-01T11:07:36.584Z", 
+					"expirationDate": "2024-09-01T11:07:36.584Z", 
+					"credentialSchema": { 
+						"id": "https://schemas.preprod.digitalcredentials.iata.org/iata_credential_v2.json", 
+						"type": "JsonSchemaValidator2018" 
+					}, 
+					"credentialStatus": { 
+						"id": "https://preprod.revocation-list-service.p-eu.rapidapi.com/credentials/revocations/661976ac-ab25-4608-9ad0-e0a598a73d68#121850", 
+						"type": "StatusList2021Entry", 
+						"statusListIndex": "121850", 
+						"statusListCredential": "https://preprod.revocation-list-service.p-eu.rapidapi.com/credentials/revocations/661976ac-ab25-4608-9ad0-e0a598a73d68" 
+					}, 
+					"credentialSubject": { 
+						"id": "did:web:bpa-api.demo.adaptivespace.io", 
+						"iata_code": "12345678" 
+					} 
+				} 
+			}, 
+			"proof" : { 
+				"type" : "Ed25519Signature2018", 
+				"created" : "2023-09-12T13:46:11.541Z", 
+				"domain" : "acmetravels.com", 
+				"proofPurpose" : "authentication", 
+				"verificationMethod" : "did:web:did.adaptivespace.io:bpa#key-2", 
+				"jws" : "eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFZERTQSJ9..JSgdLxn89bz0mVNFS5DYmjFZSClVs0ibda-XsmS45JJWxQEiFpul9olSsiCBZA6R2iLwG5kws3qDnNlZZqevBQ" 
+			} 
+			</VerifiablePresentation>
+		</DistributionChainLink>
+		<DistributionChainLink>
+			<Ordinal>2</Ordinal>
+			<OrgRole>Distributor</OrgRole>
+			<ParticipatingOrg>
+				<Name>Aggregator-X</Name>
+				<OrgID>1X</OrgID>
+			</ParticipatingOrg>
+		</DistributionChainLink>
+		<DistributionChainLink>
+			<Ordinal>3</Ordinal>
+			<OrgRole>Carrier</OrgRole>
+			<ParticipatingOrg>
+				<Name>IATA Airways</Name>
+				<OrgID>XB</OrgID>
+			</ParticipatingOrg>
+		</DistributionChainLink>
+	</easd:DistributionChain>
+	<easd:PayloadAttributes>
+        <CorrelationID>4893df4d-3a95-491d-b5d2-c2005a3b3fea</CorrelationID>
+		<Timestamp>2023-09-12T13:46:11.541Z</Timestamp>
+		<VersionNumber>26.1</VersionNumber>
+	</easd:PayloadAttributes>
+	<easd:Request>
+		<CreateOrder>
+			<AcceptSelectedQuotedOfferList>
+				<SelectedPricedOffer>
+					<OfferRefID>PRIOFF-01</OfferRefID>
+					<OwnerCode>XB</OwnerCode>
+					<SelectedOfferItem>
+						<OfferItemRefID>PRIOFFITM-01</OfferItemRefID>
+						<PaxRefID>PAX-01</PaxRefID>
+					</SelectedOfferItem>
+				</SelectedPricedOffer>
+			</AcceptSelectedQuotedOfferList>
+		</CreateOrder>
+		<DataLists>
+			<ContactInfoList>
+				<ContactInfo>
+					<ContactInfoID>CON-01</ContactInfoID>
+					<ContactPurposeText>8</ContactPurposeText>
+					<EmailAddress>
+						<ContactTypeText>PER</ContactTypeText>
+						<EmailAddressText>jane@example.com</EmailAddressText>
+					</EmailAddress>
+					<Phone>
+						<ContactTypeText>PER</ContactTypeText>
+						<PhoneNumber>+41 123 456789</PhoneNumber>
+					</Phone>
+				</ContactInfo>
+			</ContactInfoList>
+			<PaxList>
+				<Pax>
+					<Individual>
+						<Birthdate>1971-01-01</Birthdate>
+						<GenderCode>F</GenderCode>
+						<GivenName>Jane</GivenName>
+						<IndividualID>IND01</IndividualID>
+						<Surname>Smith</Surname>
+						<TitleName>Ms</TitleName>
+					</Individual>
+					<PaxID>PAX-01</PaxID>
+					<PTC>ADT</PTC>
+				</Pax>
+			</PaxList>
+		</DataLists>
+		<PaymentFunctions>
+			<OfferAssociation>
+				<OfferRefID>PRIOFF-01</OfferRefID>
+				<OwnerCode>XB</OwnerCode>
+			</OfferAssociation>
+			<PaymentMethodCriteria>
+				<PaymentTypeCode>CA</PaymentTypeCode>
+			</PaymentMethodCriteria>
+			<PaymentProcessingDetails>
+				<Amount CurCode="EUR">1000.00</Amount>
+				<PaymentMethod>
+						<SettlementPlan>
+							<IATA_Number>1234567</IATA_Number>
+							<PaymentTypeCode>CA</PaymentTypeCode>
+						</SettlementPlan>
+				</PaymentMethod>
+			</PaymentProcessingDetails>
+		</PaymentFunctions>	
+	</easd:Request>
+</easd:IATA_OrderCreateRQ>
